@@ -2,29 +2,33 @@
 
 <head>
     <title>We All! Have Fun!!!</title>
+    <meta name="author" content="Reza Shayestehpour">
     <style>
         body
         {
-            font-family:arial;            
-/*            background-image:url('Images/background3.jpg');
+            font-family:arial;
+/*          #TODO:do somthing that background is randomly chosen by server from background folder*/
+            background-image:url('Images/backgrounds/1.jpg');
             background-repeat:no-repeat;
-            background-position:left top;*/
+            background-position:left top;
+            background-size:100%;
         }
     </style>
 </head>
 
 <body>
-    <div id="Header" style="background-color:#E0E0E0; height:6%; width:100%;">
+    <div id="Header" style="background-color:#E0E0E0; height:6%; width:100%; border-radius:10px">
         <img src="Images/logo_no_text.png" height="90%" align="middle" style="margin-top:3px; margin-left:2%; opacity:1">
-        <img src="Images/header2.png" style="height:105%; width:87%; margin-top:0%; float:right; margin-right:1%; opacity:0.7">
+        <img src="Images/header.png" style="height:108%; width:87%; margin-top:0%; float:right; margin-right:1%; opacity:0.7">
     </div>
-    <img src="Images/Welcome_page_pic.png" style="float:right; height:90%">
+    <img src="Images/WeAll.png" style="float:right; height:75%; margin-right:5%">
     <div id="Login">
         <form action="" style="margin-top:30%; margin-left:5%;">
             <fieldset style="width:20%; border-radius:10px; background-color:#c0c0c0; opacity:0.4">
-                <legend>Login</legend>
+                <legend style="font-size:18;"><b>Login</b></legend>
                 <input type="text" size="25" placeholder="Username" style="font-size:16;"><br>
                 <input type="password" size="25" placeholder="Passeord" style="font-size:16;"><br>
+                <input type="submit" name="Login">
                 <p style="font-size:15;">Don't have an account? No worries! Sign up 
                 <a href="">Here</a>, it's free and easy!</p>
             </fieldset>
