@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <title>We All social network !!! </title>
+    <meta name="author" content="Reza Shayestehpour">
+    <style>
+        body
+        {
+            font-family:arial;
+/*          #TODO:do somthing that background is randomly chosen by server from background folder*/
+            background-image:url('/media/images/backgrounds/1.jpg');
+            background-repeat:no-repeat;
+            background-position:left top;
+            background-size:100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="Header" style="height:6%; width:100%; border-radius:10px">
+        <img src="/media/images/logo_no_text.png" height="100%" style="margin-top:3px; margin-left:2%; opacity:1">
+    </div>
+    <img src="/media/images/WeAll.png" style="float:right; height:75%; margin-right:5%">
+    <div id="Login">
+        <form action="/login" method="GET" style="margin-top:30%; margin-left:5%;">
+            <fieldset style="width:20%; border-radius:10px; background-color:#c0c0c0; opacity:0.8">
+                <legend style="font-size:18;"><b>Login</b></legend>
+                <input type="text" size="25" name="username" placeholder="Username" style="font-size:16;"><br>
+                <input type="password" size="25" name="password" placeholder="Password" style="font-size:16;"><br>
+                <input type="submit" name="Login">
+                <p style="font-size:15;">Don't have an account? No worries! Sign up 
+                <a href="">Here</a>, it's free and easy!</p>
+            </fieldset>
+        </form>
+    </div>
+</body>
+
+</html>

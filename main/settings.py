@@ -9,9 +9,6 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-#set session engine to cache
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 DATABASES = {
     'default': {
@@ -26,7 +23,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.4/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -53,18 +50,23 @@ USE_TZ = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+import os
+
+ROOT_DIR = (os.path.join(os.path.dirname(__file__), '..',).replace('\\','/'),)
+
+
+MEDIA_ROOT = ROOT_DIR[0]+'/media'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = ROOT_DIR[0]+'/static'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"

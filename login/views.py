@@ -1,8 +1,8 @@
 # Create your views here.
 
 from django.http import HttpResponseRedirect , HttpResponse
-from django.shortcuts import get_object_or_404, render
-from django.core.urlresolvers import reverse
+from django.template import Context, loader
+
 import main
 
 def index (request ) :
@@ -13,5 +13,6 @@ def index (request ) :
         request.session['username'] = usr
         return HttpResponseRedirect('/home')
     else :
-        return HttpResponse ("Wrong username or password ... <br/>"
-                             "<a href='/' > login again </a>")
+        template = loader.get_template('/home/arash/apProjects/sn/WeAll/templates/system_message.html')
+        message = 'you username or password is wrong ! please login again'
+        return HttpResponse(template.render(Context({'message' : message})))
