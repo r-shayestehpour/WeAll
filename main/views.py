@@ -5,10 +5,11 @@ __author__ = 'arash'
 from django.template import Context, loader
 from django.http import HttpResponse
 import main
+import random
 
 def index (request) :
     template = loader.get_template(TEMPLATE_DIRS[0]+'/index.html')
-    return HttpResponse(template.render(Context({'temp_dir':TEMPLATE_DIRS[0] , 'MEDIA_DIR' : MEDIA_URL})))
+    return HttpResponse(template.render(Context({'random':int(random.random()*2)})))
 
 def home (request) :
     template = loader.get_template(TEMPLATE_DIRS[0]+'/home.html')
