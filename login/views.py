@@ -2,6 +2,7 @@
 
 from django.http import HttpResponseRedirect , HttpResponse
 from django.template import Context, loader
+from django.utils import timezone
 
 import main
 
@@ -11,6 +12,8 @@ def index (request ) :
 
     if main.models.Person.objects.filter (username = usr , password = pwd) :
         request.session['username'] = usr
+        p = main.models.Person.objects.get(username = usr)
+        p.last_login = timezone.now()
         return HttpResponseRedirect('/home')
     else :
         template = loader.get_template('/home/arash/apProjects/sn/WeAll/templates/system_message.html')
