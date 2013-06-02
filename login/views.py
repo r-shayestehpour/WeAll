@@ -14,6 +14,7 @@ def index (request ) :
         request.session['username'] = usr
         p = main.models.Person.objects.get(username = usr)
         p.last_login = timezone.now()
+        p.save()
         return HttpResponseRedirect('/home')
     else :
         template = loader.get_template('/home/arash/apProjects/sn/WeAll/templates/system_message.html')
