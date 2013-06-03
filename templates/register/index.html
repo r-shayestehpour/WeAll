@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>We All register </title>
+</head>
+<body>
+    <form method="GET" action="/checking/" name=""/>
+        name : <input name="name" type="text"><br/>
+        family : <input name="family" type="text"/><br/>
+        student number : <input name="st_num" type="text"/><br/>
+        iust mail : <input name="iust_mail" type="email"/><br/>
+        other mail : <input name="other_mail" type="email"/><br/>
+        phone number : <input name="phone_number" type="tel"/><br/>
+        language : <input name="language" type="text" /><br>
+        country : <select name="country">
+            {% for i in country_list %}
+            <option value="{{ i.id }}" accesskey="">{{ i.country_name }}</option>
+            {% endfor %}
+        </select><br/>
+
+        <input type="submit">
+    </form>
+</body>
+</html>

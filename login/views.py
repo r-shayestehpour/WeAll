@@ -5,6 +5,8 @@ from django.template import Context, loader
 from django.utils import timezone
 
 import main
+from main.settings import TEMPLATE_DIRS
+
 
 def index (request ) :
     usr = request.GET['username']
@@ -17,6 +19,7 @@ def index (request ) :
         p.save()
         return HttpResponseRedirect('/home')
     else :
-        template = loader.get_template('/home/arash/apProjects/sn/WeAll/templates/system_message.html')
+        template = loader.get_template(TEMPLATE_DIRS[0] +'/system_message.html')
         message = 'you username or password is wrong ! please login again'
-        return HttpResponse(template.render(Context({'message' : message})))
+        messageType = 'Login error !'
+        return HttpResponse(template.render(Context({'message' : message , 'message_type' : messageType})))

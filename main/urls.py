@@ -11,6 +11,7 @@ urlpatterns = patterns('',
     url(r'^$',views.index, name='login'),
     url(r'^home' , views.home , name='home'),
     url(r'^login/' , include('login.urls') ),
+    url(r'^register/' , include('register.urls')),
     # url(r'^main/', include('main.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
