@@ -4,7 +4,7 @@
     <title>We All register </title>
 </head>
 <body>
-    <form method="GET" action="/checking/" name=""/>
+    <form method="POST" action="/checking/" name=""/>
         name : <input name="name" type="text"><br/>
         family : <input name="family" type="text"/><br/>
         student number : <input name="st_num" type="text"/><br/>
@@ -17,7 +17,11 @@
             <option value="{{ i.id }}" accesskey="">{{ i.country_name }}</option>
             {% endfor %}
         </select><br/>
+        birth date : <input name="birth_date" type="date"/><br/>
 
+        username : <input name="username" type="text"/><br/>
+        password : <input name="password" type="password"/><br/>
+        confirm  : <input name="con_pass" type="password"/><br/>
         <input type="submit">
     </form>
 </body>
