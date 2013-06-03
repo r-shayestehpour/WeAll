@@ -8,9 +8,12 @@ import main
 from main.settings import TEMPLATE_DIRS
 
 
-def index (request ) :
-    usr = request.GET['username']
-    pwd = request.GET['password']
+def login (request ) :
+    try:
+        usr = request.POST['username']
+        pwd = request.POST['password']
+    except :
+        return HttpResponseRedirect('/')
 
     if main.models.Person.objects.filter (username = usr , password = pwd) :
         request.session['username'] = usr
@@ -20,6 +23,12 @@ def index (request ) :
         return HttpResponseRedirect('/home')
     else :
         template = loader.get_template(TEMPLATE_DIRS[0] +'/system_message.html')
-        message = 'you username or password is wrong ! please login again'
+        message = 'your username or password is wrong ! please login again'
         messageType = 'Login error !'
         return HttpResponse(template.render(Context({'message' : message , 'message_type' : messageType})))
+def logout (request) :
+    try :
+        del request.session['username']
+    except KeyError :
+        pass
+    return HttpResponseRedirect('/')
