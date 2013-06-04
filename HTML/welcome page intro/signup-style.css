@@ -10,11 +10,11 @@ body
 fieldset
 {
 	float:left;
-	margin-top:8%;
-	margin-left:8%;
+	margin-top:1%;
+	margin-left:2.5%;
 	opacity:0.75;
 	background-color:#c0c0c0;
-	border-radius:15px;	
+	border-radius:10px;	
 }
 
 form

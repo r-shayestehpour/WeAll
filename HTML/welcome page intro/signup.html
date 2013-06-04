@@ -6,8 +6,37 @@
 	</head>
     
 	<body>
-	<img src="Images/WeAll.png" style="float:right; height:40%; margin-right:6%; margin-top:8%">    
-	<div id="SignUp">
+    
+    <div id="Header" style="height:6%; width:100%; border-radius:10px">
+        <marquee>
+        <img src="Images/logo_no_text2.png" height="100%" style="margin-top:3px; margin-left:2%; opacity:1">
+       </? <img src="Images/header.png" style="height:108%; width:87%; margin-top:0%; float:right; margin-right:1%; opacity:0.7">
+    </marquee>
+    </div>
+    
+    <p><img src="Images/WeAll.png" style="float:right; height:50%; margin-right:6%; margin-top:2%">    </p>
+  
+    <div>
+    
+    <fieldset>
+    	<form method="GET" enctype="application/x-www-form-urlencoded" id="Sign Up!" style="margin-top:3%;">
+                <legend style="font-size:18;"><b>Login</b></legend><br />
+                <input type="text" size="21" placeholder="Username" style="font-size:16;">
+                <input type="password" size="21" placeholder="Password" style="font-size:16;">
+                <input type="submit" name="Login" value="Log in" align="right"><br>
+                <input type="checkbox" id="keeplogin">
+            	<label for="keeplogin">keep me login!</label>
+                
+                <p style="font-size:15;">Don't have an account? No worries! Sign up 
+                blow, it's free and easy!</p>
+          </form>
+
+       </fieldset>
+       
+    </div> 
+    
+   <div id="SignUp">
+   
     <fieldset>
     	<form method="GET" enctype="application/x-www-form-urlencoded" id="Sign Up!">
     	  
@@ -189,19 +218,22 @@
              </select>
             <br>
             <input type="text" size="25" placeholder="IUST Email Address" style="font-size:16;">
-            <input type="text" size="25" placeholder="Student Number" style="font-size:16;">
+            <input type="text" size="25" placeholder="Student ID" style="font-size:16;">
             <br>
-            </form>
-			<form>
-            <input name="female" type="radio" value="Female" ><label for="female">Female</label>
-            <input name="Male" type="radio" value="Male" ><label for="male">Male</label>
-			</form>
-            <form>
+            
+			<input type="radio" name="type" id="male" />
+			<label for="male">Male</label>
+			<input type="radio" name="type" id="female" />
+			<label for="female">Female</label>
+			<input type="checkbox" id="lisence">
+            <label for="lisence">I accept the <a href="">lisence</a></label>
+            
      	    <input name="SignUp" type="submit" value="Sign Up!">
     	    
     	</form>
-        </fieldset>
+      </fieldset>
+      
     </div>
 	
-    </body>
+</body>
 </html>
