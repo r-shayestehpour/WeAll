@@ -2,26 +2,24 @@
 body
 {
     font-family:arial;
-    background-image:url('Images/backgrounds/0.jpg');
+    background-image:url('../../media/images/signup_header.png');
     background-repeat:no-repeat;
-    background-position:left top;
-    background-size:100%;
+    background-position:center left;
+    background-size:auto 100%;
 }
 
 fieldset
-{
-    float:left;
-    margin-top:1%;
-    margin-left:2.5%;
-    opacity:0.75;
+{    
+    opacity:0.6;
     background-color:#c0c0c0;
-    border-radius:10px; 
+    border-radius:10px;
+    width:25%;
 }
-
-form
-{
-    margin-top:0%;
-    margin-left:0%;
+.inputs
+{    
+    font-size:17;
+    border-radius:5px;
+    margin-top:7px;
 }
 
 legend
