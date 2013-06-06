@@ -9,6 +9,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 DATABASES = {
     'default': {

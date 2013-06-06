@@ -17,9 +17,13 @@ def login (request ) :
 
     if main.models.Person.objects.filter (username = usr , password = pwd) :
         request.session['username'] = usr
+        ####################################
+        request.session['expiry'] = 2
+        ####################################
         p = main.models.Person.objects.get(username = usr)
         p.last_login = timezone.now()
         p.save()
+        request.session.set_expiry (0)
         return HttpResponseRedirect('/home')
     else :
         template = loader.get_template(TEMPLATE_DIRS[0] +'/system_message.html')
@@ -29,6 +33,7 @@ def login (request ) :
 def logout (request) :
     try :
         del request.session['username']
+        del request.session['expiry']
     except KeyError :
         pass
     return HttpResponseRedirect('/')
