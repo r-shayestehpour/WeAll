@@ -4,13 +4,13 @@ body
     font-family:arial;
     background-image:url('../../media/images/signup_header.png');
     background-repeat:no-repeat;
-    background-position:center left;
-    background-size:auto 100%;
+    background-position:center top;
+    background-size:70% auto;
 }
 
 fieldset
 {    
-    opacity:0.6;
+    opacity:0.75;
     background-color:#c0c0c0;
     border-radius:10px;
     width:25%;

@@ -1,28 +1,69 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>We All register </title>
+    <meta name="author" value="Reza Shayestehpour">
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form method="POST" action="/checking/" name=""/>
-        name : <input name="name" type="text"><br/>
-        family : <input name="family" type="text"/><br/>
-        student number : <input name="st_num" type="text"/><br/>
-        iust mail : <input name="iust_mail" type="email"/><br/>
-        other mail : <input name="other_mail" type="email"/><br/>
-        phone number : <input name="phone_number" type="tel"/><br/>
-        language : <input name="language" type="text" /><br>
-        country : <select name="country">
-            {% for i in country_list %}
-            <option value="{{ i.id }}" accesskey="">{{ i.country_name }}</option>
-            {% endfor %}
-        </select><br/>
-        birth date : <input name="birth_date" type="date"/><br/>
-
-        username : <input name="username" type="text"/><br/>
-        password : <input name="password" type="password"/><br/>
-        confirm  : <input name="con_pass" type="password"/><br/>
-        <input type="submit">
+    <form method="POST" action="/checking/" name="">
+        <div style="margin-left:8%; margin-top:27%; float:left">
+        <fieldset>
+            <legend>Basic info!</legend>
+            We need these information to create your account!<br>
+            <input type="text" size="13" name="name" placeholder="First Name" class="inputs">
+            <input type="text" size="15" name="family" placeholder="Family Name" class="inputs" style="margin-left:-2px"><br>
+            <input type="email" size="30" name="email" placeholder="Email Address" class="inputs"><br>
+<!--            <input type="text" size="30" name="username" placeholder="Prefered Username" class="inputs"><br>-->
+            <input type="password" size="30" name="password" placeholder="Password" class="inputs"><br>
+            <input type="password" size="30" name="con_pass" placeholder="Confirm Password" class="inputs"><br>
+            Birthday:
+            <input type="date" name="birth_date" class="inputs"><br>
+            <!--
+            <select name="Birth_month" class="inputs">
+                <option value="month" selected>Month:</option>
+                <option value="...">...</option>
+            </select>
+            <select name="Birth_day" class="inputs">
+                <option value="day" selected>Day:</option>
+                <option value="...">...</option>
+            </select>
+            <select name="Birth_year" class="inputs">
+                <option value"year" selected>Year:</option>
+                <option value="...">...</option>
+            </select>-->
+            Gender:
+            <input type="radio" name="gender"/>
+            <label for="male">Male</label>
+            <input type="radio" name="gender"/>
+            <label for="female">Female</label>            
+        </fieldset>
+        </div>
+        <div style="margin-top:25%;margin-left:-20px;float:left">
+        <fieldset>
+            <legend>Work, Education and living!</legend>
+            Tell us more!<br>
+            <input type="tel" size="30" name="phone_number" placeholder="Phone Number" class="inputs"><br>
+            Country: 
+            <select name="country" class="inputs">
+                {% for i in country_list %}
+                <option value="{{ i.id }}" accesskey="">{{ i.country_name }}</option>
+                {% endfor %}
+            </select><br/>
+            <input type="text" size="30" name="hometown" placeholder="Where are you from?" class="inputs"><br>
+            <input type="text" size="30" name="current_city" placeholder="Where do you live now?" class="inputs"><br>
+            <input type="text" size="30" name="work" placeholder="Where have you worked?" class="inputs"><br>
+            <input type="text" size="30" name="university" placeholder="Where did you go to university?" class="inputs"><br>
+            <input type="text" size="30" name="highschool" placeholder="Where did you go to highschool?" class="inputs"><br>
+        </fieldset>
+        </div>
+        <div style=" margin-top:41%;margin-left:10px; float:left">
+        <fieldset style="width:auto">
+        <legend>Submit!</legend>
+        <!--#TODO if necessary inputs are not given, proper message should be shown here-->
+            <input type="checkbox" name="agreement" class="inputs">
+            <label for="agreement">I accept the terms of WeAll!'s <a href="agreement">agreement!</a></label><br>
+            <input type="submit" class="inputs" style="float:right;">
+        </fieldset>
+        </div>
     </form>
 </body>
 </html>
