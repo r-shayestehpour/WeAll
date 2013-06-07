@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta name="author" value="Reza Shayestehpour, Hooman Behnejad">
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <form method="POST">
+        <fieldset style="margin-left:20%">
+            <legend>Basic info!</legend>
+            We need these information to create your account!<br>
+            <input type="text" size="13" name="first_name" placeholder="First Name" class="inputs">
+            <input type="text" size="15" name="family_name" placeholder="Family Name" class="inputs"><br>
+            <input type="text" size="30" name"email" placeholder="Email Address" class="inputs"><br>
+<!--            <input type="text" size="30" name="username" placeholder="Prefered Username" class="inputs"><br>-->
+            <input type="password" size="30" name="password" placeholder="Password" class="inputs"><br>
+            <input type="password" size="30" name="confirm_password" placeholder="Confirm Password" class="inputs"><br>
+            Birthday:
+            <select name="Birth_month" class="inputs">
+                <option value="month" selected>Month:</option>
+                <option value="...">...</option>
+            </select>
+            <select name="Birth_day" class="inputs">
+                <option value="day" selected>Day:</option>
+                <option value="...">...</option>
+            </select>
+            <select name="Birth_year" class="inputs">
+                <option value"year" selected>Year:</option>
+                <option value="...">...</option>
+            </select>
+            Gender:
+            <input type="radio" name="gender"/>
+            <label for="male">Male</label>
+            <input type="radio" name="gender"/>
+            <label for="female">Female</label>            
+        </fieldset>        
+        <fieldset style="margin-left:20%">
+            <legend>Work, Education and living!</legend>
+            Tell us more!<br>
+            <input type="text" size="30" name="hometown" placeholder="Where are you from?" class="inputs"><br>
+            <input type="text" size="30" name="current_city" placeholder="Where do you live now?" class="inputs"><br>
+            <input type="text" size="30" name="work" placeholder="Where have you worked?" class="inputs"><br>
+            <input type="text" size="30" name="university" placeholder="Where did you go to university?" class="inputs"><br>
+            <input type="text" size="30" name="highschool" placeholder="Where did you go to highschool?" class="inputs"><br>
+        </fieldset>
+        </form>
+    </div>
+</body>
+</html>
