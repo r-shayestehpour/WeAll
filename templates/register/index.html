@@ -1,18 +1,20 @@
 <html>
 <head>
-    <meta name="author" value="Reza Shayestehpour && hooman behnejad">
-    <link type="text/css" rel="stylesheet" href="style.css">
-</head>
+<img src="../../media/images/signup_header.png" height="58%" width="80%" style="margin-top:-1%; margin-left:10%; position:absolute">
+    <meta name="author" value="Reza Shayestehpour && Hooman Behnejad">
+    <link type="text/css" rel="stylesheet" href="../../media/css/style.css">
+</head> 
 <body>
-<div style="margin-left:8%; margin-top:24%; float:left">
+<div style="margin-left:8%; margin-top:21.5%; float:left">
 <fieldset>
     <form method="POST" action="/checking/" name="">
         
             <legend>Basic info!</legend>
             We need these information to create your account!<br>
-            <input type="text" size="13" name="name" placeholder="First Name" class="inputs">
+            <input type="text" size="13" name="name" placeholder="First Name" class="inputs" >
             <input type="text" size="15" name="family" placeholder="Last Name" class="inputs"><br>
             <input type="email" size="30" name="email" placeholder="Email Address" class="inputs"><br>
+            <input type="email" size="30" name="iustemail" placeholder=" IUST mail Address" class="inputs"><br>
 <!--            <input type="text" size="30" name="username" placeholder="Prefered Username" class="inputs"><br>-->
             <input type="password" size="30" name="password" placeholder="Password" class="inputs"><br>
             <input type="password" size="30" name="con_pass" placeholder="Confirm Password" class="inputs"><br>
@@ -59,13 +61,14 @@
         </fieldset>
         </div>
         
-        <div style=" margin-top:41%;margin-left:10px; float:left">
+        <div style=" margin-top:41%;margin-left:40px; float:left;">
+        
         	<fieldset style="width:auto">
         	<legend>Submit!</legend>
         <!--#TODO if necessary inputs are not given, proper message should be shown here-->
             <input type="checkbox" name="agreement" class="inputs">
             <label for="agreement">I accept the terms of WeAll!'s <a href="agreement">agreement!</a></label><br>
-            <input type="submit" class="inputs" style="float:right;">
+            <input type="submit" class="inputs" style="float:right;" value="Sign Up!">
         	</fieldset>
         </div>
     </form>

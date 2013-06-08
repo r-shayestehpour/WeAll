@@ -2,10 +2,11 @@
 body
 {
     font-family:arial;
-    background-image:url('../../media/images/signup_header.png');
+    background-image:url('../images/backgrounds/{{ random }}.jpg');
     background-repeat:no-repeat;
     background-position:center top;
-    background-size:70% auto;
+    background-size:100% auto;
+	position:relative;
 }
 
 fieldset
