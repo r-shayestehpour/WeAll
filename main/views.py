@@ -26,4 +26,4 @@ def home (request) :
         template = loader.get_template(TEMPLATE_DIRS[0]+'/system_message.html')
         message = 'you are not logged in ! please first login ...'
         messageType = 'Login error !'
-        return HttpResponse(template.render(Context({'message' : message , 'message_type' : messageType , 'random' : int(random.random()*2)})))
+        return HttpResponse(template.render(Context({'message' : message , 'message_type' : messageType})))

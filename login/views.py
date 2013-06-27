@@ -3,7 +3,7 @@
 from django.http import HttpResponseRedirect , HttpResponse
 from django.template import Context, loader
 from django.utils import timezone
-import random
+
 import main
 from main.settings import TEMPLATE_DIRS
 
@@ -29,8 +29,7 @@ def login (request ) :
         template = loader.get_template(TEMPLATE_DIRS[0] +'/system_message.html')
         message = 'your username or password is wrong ! please login again'
         messageType = 'Login error !'
-        return HttpResponse(template.render(Context({'message' : message , 'message_type' : messageType , 'random' : int(random.random()*2)})))
-    
+        return HttpResponse(template.render(Context({'message' : message , 'message_type' : messageType})))
 def logout (request) :
     try :
         del request.session['username']
