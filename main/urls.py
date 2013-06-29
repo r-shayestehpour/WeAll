@@ -1,18 +1,20 @@
 from django.conf.urls import patterns, include, url
-
-# Uncomment the next two lines to enable the admin:
+from dajaxice.core import dajaxice_autodiscover, dajaxice_config
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 
+dajaxice_autodiscover()
 admin.autodiscover()
 
 from main import views, settings
 
 urlpatterns = patterns('',
-    # Examples:
+    url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
     url(r'^$',views.index, name='login'),
     url(r'^home' , views.home , name='home'),
     url(r'^login/' , include('login.urls') ),
     url(r'^register/' , include('register.urls')),
+    url(r'^chat$', 'chat.views.test'),
     # url(r'^main/', include('main.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
@@ -26,3 +28,5 @@ urlpatterns += patterns('',
                        (r'^media/(?P<path>.*)$', 'django.views.static.serve',
                         {'document_root': settings.MEDIA_ROOT}),
                        )
+
+urlpatterns += staticfiles_urlpatterns()
