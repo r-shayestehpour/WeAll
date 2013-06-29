@@ -1,0 +1,54 @@
+{% load dajaxice_templatetags %}
+
+<html>
+  <head>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="{% static 'ajax/style.css' %}"/>
+    <title>My base template</title>
+        {% dajaxice_js_import %}
+    <script>
+        function my_js_callback(data){
+            alert(data.message);
+        }
+	</script>
+	
+	
+	<script>
+        function loadLog(data){
+            alert(data.message);     
+            var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request  
+                
+            $("#chatbox").html(data.message); //Insert chat log into the #chatbox div     
+              
+            //Auto-scroll             
+            var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request  
+            if(newscrollHeight > oldscrollHeight){  
+                $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div  
+            }                 
+        } 
+     
+        
+    </script>
+
+  </head>
+  <body>
+
+       <P> Hello {{ name }} </p><br>
+       <div id="wrapper">  
+    <div id="menu">  
+        <p class="welcome">Welcome, <b></b></p>  
+        <p class="logout"><a id="exit" href="#">Exit Chat</a></p>  
+        <div style="clear:both"></div>  
+    </div>  
+      
+    <div id="chatbox"></div>  
+      
+    <form name="message" action="">  
+        <input type="text" id="msg" size="63" />  
+        <input name="submitmsg" type="button"  id="submitmsg" value="Send" onclick = "Dajaxice.ajax.chat( loadLog, { 'text': msg.value } )"/>  
+       
+    </form>  
+</div> 
+  </body>    
+    
+</html>
