@@ -1,0 +1,79 @@
+body{
+	background:#022e3f url(../img/head.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+div#footer{
+	position:absolute;
+	bottom:10px;
+	left:50%;
+	width:800px;
+	height:40px;	
+	text-align:center;
+	margin-left:-400px;
+	line-height:40px;
+	font:10pt tahoma;
+	color:#FFF;
+	direction:rtl;
+}
+div#logo{
+	position:absolute;
+	top:30px;
+	left:50%;
+	margin-left:-150px;
+	width:300px;
+	height:61px;
+	background: url(../img/logo.png) no-repeat center top;
+}
+div#main{
+	width:910px;
+	height:450px;
+	margin: -202px 0px 0px -438px;
+	background-color:#FFF;
+	position:absolute;
+	top:50%;
+	left:50%;
+}
+#text{
+	width:876px;
+	font:13px tahoma,"B Yekan";
+	color:#027086;
+	direction:rtl;
+	line-height:21px;
+	position:absolute;
+	top:25px;
+	right:16px;
+	text-align:center;
+}
+a{
+	color:#027086;
+}
+a:visited {
+	color:#027086;
+}
+a:hover {
+	color:#004056;
+}
+#chrome, #safari, #firefox, #opera{
+	position:absolute;
+	top:258px;
+	width:55;
+	height:55;
+	cursor:pointer;
+}
+#chrome{
+	right:320px;
+	background: url(../img/chrome.png) no-repeat center top;
+}
+#safari{
+	right:385px;
+	background: url(../img/safari.png) no-repeat center top;
+}
+#firefox{
+	right:455px;
+	background: url(../img/firefox.png) no-repeat center top;
+}
+#opera{
+	right:520px;
+	background: url(../img/opera.png) no-repeat center top;
+}
