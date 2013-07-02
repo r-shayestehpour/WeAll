@@ -1,6 +1,5 @@
-__author__ = 'arash'
-
 from django.db import models
+from django.contrib.auth.models import User
 
 class Country (models.Model) :
     country_name = models.CharField(max_length=20)
@@ -9,18 +8,26 @@ class Country (models.Model) :
         return self.country_name
 
 class Person (models.Model) :
-
-    name       = models.CharField (max_length=20)
-    family     = models.CharField (max_length=20)
-    other_mail = models.EmailField()
+    user       = models.OneToOneField(User)
     phone_num  = models.CharField(max_length=20)
-    language   = models.CharField(max_length=200)
-    country    = models.ForeignKey(Country)#
+    country    = models.ForeignKey(Country)
     birth_date = models.DateTimeField("birth date")
+    GENDERS    = (
+                  ('M','Male'),
+                  ('F','Female'),
+                  )
+    gender     = models.CharField(max_length = 1, choices = GENDERS)
     join_date  = models.DateTimeField("join date")
     last_login = models.DateTimeField("last login")
-    username   = models.CharField(max_length=20)
-    password   = models.CharField(max_length=64)
+    
+    def __unicode__(self):
+        return self.user.first_name + " " + self.user.last_name
+    
+class Post (models.Model):
+    person = models.ForeignKey(Person)
+    date   = models.DateTimeField("post date")
+    
+
 #TODO:inai k az inja mizanam ro ezafe kn!
 #gender:male/female#
 #hometown
