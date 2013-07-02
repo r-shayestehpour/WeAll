@@ -14,7 +14,7 @@ def index (request) :
     #############################################
     if request.session.get('username') :
         return HttpResponseRedirect('/home')
-    template = loader.get_template(TEMPLATE_DIRS[0]+'/main/index.html')
+    template = loader.get_template(TEMPLATE_DIRS[0]+'/main/team.html')
     return HttpResponse(template.render(Context({'random':int(random.random()*2)})))
 
 def home (request) :

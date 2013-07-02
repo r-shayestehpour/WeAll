@@ -1,50 +1,19 @@
 <html>
 <head>
-<img src="../../media/images/signup_header.png" height="58%" width="80%" style="margin-top:-1%; margin-left:10%; position:absolute">
-    <meta name="author" value="Reza Shayestehpour && Hooman Behnejad">
-	<title>Register Here!</title>
-    <style>	
-		body
-		{
-			font-family:arial;
-			background-image:url('../../media/images/backgrounds/{{ random }}.jpg');
-			background-repeat:no-repeat;
-			background-position:center top;
-			background-size:100% auto;
-			position:relative;
-		}
-		
-		fieldset
-		{    
-			opacity:0.75;
-			background-color:#c0c0c0;
-			border-radius:10px;
-			width:25%;
-		}
-		.inputs
-		{    
-			font-size:17;
-			border-radius:5px;
-			margin-top:7px;
-		}
-	
-		legend
-		{
-			font-size:18px;
-		}
-	</style>
-</head> 
+    <title>Sign Up!</title>
+    <meta name="author" value="Reza Shayestehpour">
+    <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=0">
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
 <body>
-<div style="margin-left:8%; margin-top:21.5%; float:left">
-<fieldset>
     <form method="POST" action="/checking/" name="">
-        
+        <div style="margin-left:8%; margin-top:27%; float:left">
+        <fieldset>
             <legend>Basic info!</legend>
             We need these information to create your account!<br>
-            <input type="text" size="13" name="name" placeholder="First Name" class="inputs" >
-            <input type="text" size="15" name="family" placeholder="Last Name" class="inputs"><br>
+            <input type="text" size="13" name="name" placeholder="First Name" class="inputs">
+            <input type="text" size="15" name="family" placeholder="Family Name" class="inputs" style="margin-left:-2px"><br>
             <input type="email" size="30" name="email" placeholder="Email Address" class="inputs"><br>
-            <input type="email" size="30" name="iustemail" placeholder=" IUST mail Address" class="inputs"><br>
 <!--            <input type="text" size="30" name="username" placeholder="Prefered Username" class="inputs"><br>-->
             <input type="password" size="30" name="password" placeholder="Password" class="inputs"><br>
             <input type="password" size="30" name="con_pass" placeholder="Confirm Password" class="inputs"><br>
@@ -64,15 +33,13 @@
                 <option value="...">...</option>
             </select>-->
             Gender:
-            <input type="radio" name="gender" id="male"/>
+            <input type="radio" name="gender"/>
             <label for="male">Male</label>
-            <input type="radio" name="gender" id="female"/>
-            <label for="female">Female</label>   
-            </fieldset>
-         </div>         
-        
-       
-        <div style="margin-top:26%; margin-left:-20px; float:left">
+            <input type="radio" name="gender"/>
+            <label for="female">Female</label>            
+        </fieldset>
+        </div>
+        <div style="margin-top:25%;margin-left:-20px;float:left">
         <fieldset>
             <legend>Work, Education and living!</legend>
             Tell us more!<br>
@@ -90,16 +57,14 @@
             <input type="text" size="30" name="highschool" placeholder="Where did you go to highschool?" class="inputs"><br>
         </fieldset>
         </div>
-        
-        <div style=" margin-top:41%;margin-left:40px; float:left;">
-        
-        	<fieldset style="width:auto">
-        	<legend>Submit!</legend>
+        <div style=" margin-top:41%;margin-left:10px; float:left">
+        <fieldset style="width:auto">
+        <legend>Submit!</legend>
         <!--#TODO if necessary inputs are not given, proper message should be shown here-->
             <input type="checkbox" name="agreement" class="inputs">
             <label for="agreement">I accept the terms of WeAll!'s <a href="agreement">agreement!</a></label><br>
-            <input type="submit" class="inputs" style="float:right;" value="Sign Up!">
-        	</fieldset>
+            <input type="submit" class="inputs" style="float:right;">
+        </fieldset>
         </div>
     </form>
 </body>
