@@ -3,8 +3,9 @@
 <html>
   <head>
     {% load staticfiles %}
-    <link rel="stylesheet" href="{% static 'ajax/style.css' %}"/>
-    <title>My base template</title>
+    <link rel="stylesheet" href="{% static 'chat/style.css' %}"/>
+    <title>Chat template</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         {% dajaxice_js_import %}
     <script>
         function my_js_callback(data){
@@ -15,7 +16,7 @@
 	
 	<script>
         function loadLog(data){
-            alert(data.message);     
+     
             var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request  
                 
             $("#chatbox").html(data.message); //Insert chat log into the #chatbox div     
@@ -45,7 +46,7 @@
       
     <form name="message" action="">  
         <input type="text" id="msg" size="63" />  
-        <input name="submitmsg" type="button"  id="submitmsg" value="Send" onclick = "Dajaxice.ajax.chat( loadLog, { 'text': msg.value } )"/>  
+        <input name="submitmsg" type="button"  id="submitmsg" value="Send" onclick = "Dajaxice.chat.chat( loadLog, { 'text': msg.value } )"/>  
        
     </form>  
 </div> 

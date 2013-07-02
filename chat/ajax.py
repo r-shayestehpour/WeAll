@@ -6,7 +6,7 @@ from dajaxice.decorators import dajaxice_register
 def chat(request, text):
 
     f = open("log.html", "a")
-    f.write("\n %s" % text)
+    f.write("<br> %s" % text)
     f.close()
     f = open("log.html", "r")
     log = f.read()
