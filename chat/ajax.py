@@ -22,6 +22,3 @@ def chat(request, text):
     f.close()
     return simplejson.dumps({'message':log})
 
-@dajaxice_register
-def kooft(request, text):
-    return simplejson.dumps({'message':text})

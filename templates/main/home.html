@@ -39,11 +39,6 @@
     </script>
     
     <script>
-		$("#maraz").keyup(function(event){
-    if(event.keyCode == 13){
-        $("#sumbitmaraz").click();
-    }
-});
     function searchKeyPress(e)
     {
         // look for window.event in case event isn't passed in
@@ -53,7 +48,22 @@
             document.getElementById('submitmsg').click();
         }
     }
-    </script>			
+    </script>
+    
+    <script>
+		function newpost(data){
+			$("#status").attr("value", ""); 
+			$("#sysmsg").html(data.message);
+			Dajaxice.main.update(feed);
+		}
+		function feed (post) {
+			
+			$("#feed").html(post.data);
+		}
+		
+		setInterval(function(){Dajaxice.main.update(feed)}, 60000)
+    
+    </script>		
 	</head>
 	<body>
 		<ul id="nav">
@@ -71,17 +81,17 @@
 			<ul>		
 				<li class="round" who="1" id="home">				
 					<div class="content">						
-						salam!!!<br>
-							 <form action="javascript:void(0);">
-								<input type="text" id="maraz" size="63" onkeypress="searchKeyPress(event);"/>  
-								<input name="submitmaraz" type="button"  id="sumbitmaraz" value="Send" onclick = "Dajaxice.chat.kooft( log, { 'text': msg.value } );"/>  
-							 </form>
+						<div id="feed"></div>
 					</div>
 					<div class="holder">News Feed</div>
 				</li>
 				<li class="round" who="2" id="contests">						
 					<div class="content">	
-						
+						<form name="status post" action="javascript:void(0);">
+							<input type="text" id="status" size="20"/>  
+							<input name="submitstatus" type="button"  id="submitstatus" value="Send" onclick = "Dajaxice.main.new_post( newpost, { 'newtext': status.value } );"/>  
+						</form> 
+						<div id="sysmsg"></div> 
 					</div>
 					<div class="holder">New Post</div>
 				</li>

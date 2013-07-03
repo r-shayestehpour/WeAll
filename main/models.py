@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Country (models.Model) :
     country_name = models.CharField(max_length=20)
 
@@ -24,8 +25,9 @@ class Person (models.Model) :
         return self.user.first_name + " " + self.user.last_name
     
 class Post (models.Model):
-    person = models.ForeignKey(Person)
-    date   = models.DateTimeField("post date")
+    user = models.ForeignKey(User)
+    date = models.DateTimeField("post date")
+    text = models.CharField(max_length = 1000) 
     
 
 #TODO:inai k az inja mizanam ro ezafe kn!
