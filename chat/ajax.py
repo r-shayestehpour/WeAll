@@ -1,6 +1,7 @@
 from django.utils import simplejson
 from dajaxice.decorators import dajaxice_register
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 
 @dajaxice_register
@@ -10,10 +11,17 @@ def chat(request, text):
         name = p.last_name
     except:
         name = "unknown"
-    f = open("log.html", "a")
-    f.write("<br> %s : %s" %(name, text))
+    now = timezone.now()
+    time = ("%s" %now)
+    time = time[:16]
+    f    = open("log.html", "a")
+    f.write("<br> %s (%s) : %s" %(name, time, text))
     f.close()
-    f = open("log.html", "r")
-    log = f.read()
+    f    = open("log.html", "r")
+    log  = f.read()
     f.close()
     return simplejson.dumps({'message':log})
+
+@dajaxice_register
+def kooft(request, text):
+    return simplejson.dumps({'message':text})

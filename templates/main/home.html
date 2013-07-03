@@ -16,22 +16,44 @@
 		
 		
 		<script>
+		
         function loadLog(data){
      
             var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request  
-                
+            $("#msg").attr("value", "");   
             $("#chatbox").html(data.message); //Insert chat log into the #chatbox div     
               
             //Auto-scroll             
             var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request  
             if(newscrollHeight > oldscrollHeight){  
                 $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div  
-            }                 
-        } 
-     
+            }    
+            return false;         
+        }
         
+        
+        function log(data){
+			alert(data.message);
+			return false;
+		}
     </script>
-    			
+    
+    <script>
+		$("#maraz").keyup(function(event){
+    if(event.keyCode == 13){
+        $("#sumbitmaraz").click();
+    }
+});
+    function searchKeyPress(e)
+    {
+        // look for window.event in case event isn't passed in
+        if (typeof e == 'undefined' && window.event) { e = window.event; }
+        if (e.keyCode == 13)
+        {
+            document.getElementById('submitmsg').click();
+        }
+    }
+    </script>			
 	</head>
 	<body>
 		<ul id="nav">
@@ -50,7 +72,10 @@
 				<li class="round" who="1" id="home">				
 					<div class="content">						
 						salam!!!<br>
-
+							 <form action="javascript:void(0);">
+								<input type="text" id="maraz" size="63" onkeypress="searchKeyPress(event);"/>  
+								<input name="submitmaraz" type="button"  id="sumbitmaraz" value="Send" onclick = "Dajaxice.chat.kooft( log, { 'text': msg.value } );"/>  
+							 </form>
 					</div>
 					<div class="holder">News Feed</div>
 				</li>
@@ -70,9 +95,9 @@
 									<div style="clear:both"></div>  
 								</div> 
 							<div id="chatbox"></div>  
-							<form name="message" action="">  
-								<input type="text" id="msg" size="63" />  
-								<input name="submitmsg" type="button"  id="submitmsg" value="Send" onclick = "Dajaxice.chat.chat( loadLog, { 'text': msg.value } )"/>  
+							<form name="message" action="javascript:void(0);">  
+								<input type="text" id="msg" size="63" onkeypress="searchKeyPress(event);"/>  
+								<input name="submitmsg" type="button"  id="submitmsg" value="Send" onclick = "Dajaxice.chat.chat( loadLog, { 'text': msg.value } );"/>  
 							</form>  
 						</div> 
 					</div>
