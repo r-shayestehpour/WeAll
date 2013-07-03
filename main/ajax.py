@@ -26,5 +26,5 @@ def update(request):
     posts = models.Post.objects.all()[:20]
     html = ''
     for i in posts :
-        html += '<p>' + i.user.first_name + ' ' + i.user.last_name + ' : ' + "<br>" + i.text + "</P><br>"
+        html += '<p>' + i.user.first_name + ' ' + i.user.last_name + ' : ' + "<br>" + i.text + "</P><hr width='33%'>"
     return simplejson.dumps({'data':html})

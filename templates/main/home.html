@@ -73,11 +73,10 @@
 				<li where="2">New Post</li>				
 				<li where="3">Chat</li>
 				<li where="4">Find Friends</li>				
-				<li where="5">Help</li>
+				<li where="5">Profile</li>
 			</center>
 		</ul>
 		<div id="main">
-			<center> <p> {{ person.first_name }} {{ person.last_name }} </p> </center>
 			<ul>		
 				<li class="round" who="1" id="home">				
 					<div class="content">						
@@ -122,9 +121,10 @@
 				</li>							
 				<li class="round" who="5" id="FAQ">				
 					<div class="content">
-						
+						<p> {{ person.first_name }} {{ person.last_name }}'s Profile </p> <br>
+						<p> </p>
 					</div>
-					<div class="holder">Help</div>
+					<div class="holder">Profile</div>
 				</li>					
 			</ul>
 		</div>
