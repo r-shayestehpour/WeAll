@@ -9,16 +9,16 @@ class Country (models.Model) :
 
 class Person (models.Model) :
     user       = models.OneToOneField(User)
-    phone_num  = models.CharField(max_length=20)
-    country    = models.ForeignKey(Country)
+    phone_num  = models.CharField(max_length=20, null = True)
+    country    = models.ForeignKey(Country, null = True)
     birth_date = models.DateTimeField("birth date")
     GENDERS    = (
                   ('M','Male'),
                   ('F','Female'),
                   )
     gender     = models.CharField(max_length = 1, choices = GENDERS)
-    join_date  = models.DateTimeField("join date")
-    last_login = models.DateTimeField("last login")
+    join_date  = models.DateTimeField("join date", null = True)
+    last_login = models.DateTimeField("last login", null = True)
     
     def __unicode__(self):
         return self.user.first_name + " " + self.user.last_name

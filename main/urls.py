@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     url(r'^login/' , include('login.urls') ),
     url(r'^register/' , include('register.urls')),
     url(r'^chat$', 'chat.views.test'),
+    url(r'^sign_up$', 'register.views.sign_up'),
    
     # url(r'^main/', include('main.foo.urls')),
 

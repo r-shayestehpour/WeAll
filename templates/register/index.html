@@ -5,7 +5,7 @@
     <meta name="author" value="Reza Shayestehpour">
     <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=0">
     <link type="text/css" rel="stylesheet" href="{% static 'register/style.css' %}">
-
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script> 
 function validateFormOnSubmit(theForm) {
 var reason = "";
@@ -18,6 +18,7 @@ var reason = "";
   
       
   if (reason != "") {
+	$("#message").html(reason);  
     alert("Some fields need correction:\n" + reason);
     return false;
   }
@@ -86,7 +87,7 @@ function validateEmail(fld) {
     }
     return error;
 }
-
+<!--
 function validatePhone(fld) {
     var error = "";
     var stripped = fld.value.replace(/[\(\)\.\-\ ]/g, '');     
@@ -101,13 +102,14 @@ function validatePhone(fld) {
         error = "The phone number is the wrong length. Make sure you included an area code.\n";
         fld.style.background = 'Yellow';
     } 
-    return error;
-}
+    return error; 
+ } 
+ -->
  </script>
     
 </head>
 <body>
-    <form method="POST"  onsubmit="return validateFormOnSubmit(this)" name="sign_up">
+    <form method="POST"  onsubmit="return validateFormOnSubmit(this)" name="sign_up" action="sign_up">
         <div style="margin-left:8%; margin-top:27%; float:left">
         <fieldset>
             <legend>Basic info!</legend>
@@ -162,6 +164,7 @@ function validatePhone(fld) {
         <fieldset style="width:auto">
         <legend>Submit!</legend>
         <!--#TODO if necessary inputs are not given, proper message should be shown here-->
+        <div id="message"></div>
             <input type="checkbox" name="agreement" class="inputs">
             <label for="agreement">I accept the terms of WeAll!'s <a href="agreement">agreement!</a></label><br>
             <input type="submit" class="inputs" style="float:right;">

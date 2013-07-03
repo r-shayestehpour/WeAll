@@ -1,4 +1,6 @@
 from django.http import HttpResponseRedirect , HttpResponse
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import User
 from django.template import Context, loader
 from django.utils import timezone
 import main
@@ -20,7 +22,12 @@ def sign_up (request):
     birth_date = request.POST['birth_date']
     gender     = request.POST['gender']
     
-    user            = User.objects.create_user(email, email, password)
-    user.first_name = first_name
-    user.last_name  = last_name
-    user.birth_date = birth_date
+    usr            = User.objects.create_user(email, email, password)
+    usr.first_name = first_name
+    usr.last_name  = last_name
+    p               = main.models.Person.objects.create( user = usr, gender = gender, join_date = timezone.now(), birth_date = birth_date )
+    
+    usr.save()
+    p.save()
+
+    return HttpResponseRedirect('/')
