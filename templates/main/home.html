@@ -1,13 +1,101 @@
-<!DOCTYPE html>
+{% load dajaxice_templatetags %}
 <html>
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>We All <sup>social network</sup></h1><br/>
-    hi {{ person.name }} ! <br/>
-    your last login was : {{ person.last_login }} <br/>
-    current time is : {% now "jS F Y H:i" %}
-    <a href="/login/close">logout</a>
-</body>
+	<head>
+		<title>We All!</title>
+		{% load staticfiles %}
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'main/icn/icon.ico' %}" />
+		<meta http-equiv="Content-Type" content="text /html; charset=UTF-8" />
+		<link type="text/css" rel="stylesheet" href="{% static 'main/css/team.css' %}" media="screen"/>
+		<link rel="stylesheet" href="{% static 'chat/style.css' %}"/>
+	<!--	<link type="text/css" rel="stylesheet" href="{% static 'main/css/tipsy.css' %}" />
+		<link type="text/css" rel="stylesheet" href="{% static 'main/css/jscroll.css' %}" /> -->
+		<script type="text/javascript" src="{% static 'main/jsc/jquery-1.4.js' %}"></script>
+		<script type="text/javascript" src="{% static 'main/jsc/roundabout.js' %}"></script>		
+		<script type="text/javascript" src="{% static 'main/jsc/myscripts.js' %}"></script>	
+		{% dajaxice_js_import %}
+		
+		
+		<script>
+        function loadLog(data){
+     
+            var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request  
+                
+            $("#chatbox").html(data.message); //Insert chat log into the #chatbox div     
+              
+            //Auto-scroll             
+            var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request  
+            if(newscrollHeight > oldscrollHeight){  
+                $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div  
+            }                 
+        } 
+     
+        
+    </script>
+    			
+	</head>
+	<body>
+		<ul id="nav">
+			<div id="backbar"></div>
+			<center>
+				<li where="1" class="selected">News Feed</li>
+				<li where="2">New Post</li>				
+				<li where="3">Chat</li>
+				<li where="4">Find Friends</li>				
+				<li where="5">Help</li>
+			</center>
+		</ul>
+		<div id="main">
+			<center> <p> {{ person.first_name }} {{ person.last_name }} </p> </center>
+			<ul>		
+				<li class="round" who="1" id="home">				
+					<div class="content">						
+						salam!!!<br>
+
+					</div>
+					<div class="holder">News Feed</div>
+				</li>
+				<li class="round" who="2" id="contests">						
+					<div class="content">	
+						
+					</div>
+					<div class="holder">New Post</div>
+				</li>
+				<li class="round" who="3" id="problems">	
+					<div class="content">
+						<br>				
+						<P> WeAll Public ChatRoom </p><br>
+						<div id="wrapper">  
+								<div id="menu">  
+									<p class="welcome">Chat with anyone here!<b></b></p>    
+									<div style="clear:both"></div>  
+								</div> 
+							<div id="chatbox"></div>  
+							<form name="message" action="">  
+								<input type="text" id="msg" size="63" />  
+								<input name="submitmsg" type="button"  id="submitmsg" value="Send" onclick = "Dajaxice.chat.chat( loadLog, { 'text': msg.value } )"/>  
+							</form>  
+						</div> 
+					</div>
+					<div class="holder">Chat</div>
+				</li>			
+				<li class="round" who="4" id="conver">				
+					<div class="content">
+						
+						
+					</div>
+					<div class="holder">Find Friends</div>
+				</li>							
+				<li class="round" who="5" id="FAQ">				
+					<div class="content">
+						
+					</div>
+					<div class="holder">Help</div>
+				</li>					
+			</ul>
+		</div>
+		
+		<script type="text/javascript"> $('#nitiftext').hide(); $('#submit').hide(); $('#problem').hide(); $('#login').hide(); $('#newpass').hide(); $('#endcontest').hide(); $('#alacstatus').hide(); $('#alacstand').hide(); $('#alacproblem').hide(); </script>
+		
+		<div id="footer"><p>All rights reserved We All &copy;</p></div>
+	</body>
 </html>
