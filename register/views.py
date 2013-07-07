@@ -32,4 +32,4 @@ def sign_up (request):
     
     template = loader.get_template(TEMPLATE_DIRS[0] +'/main/index.html')
     message = "You're successfully signed up!\nLogin & Enjoy!"
-    return HttpResponse(template.render(Context({'message' : message, 'random':int(random.random()*2)})))
+    return HttpResponse(template.render(Context({'message' : message, 'random':int(random.random()*24)})))
