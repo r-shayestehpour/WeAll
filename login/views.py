@@ -33,7 +33,7 @@ def login (request ) :
         return HttpResponseRedirect('/home')
     else :
         template = loader.get_template(TEMPLATE_DIRS[0] +'/main/index.html')
-        message = 'your username or password is wrong ! please try again'
+        message = 'Wrong email or password!'
         return HttpResponse(template.render(Context({'message' : message, 'random':int(random.random()*2)})))
 def logout (request) :
     try :
@@ -42,3 +42,4 @@ def logout (request) :
     except KeyError :
         pass
     return HttpResponseRedirect('/')
+

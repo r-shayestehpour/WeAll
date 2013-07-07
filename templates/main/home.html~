@@ -136,7 +136,7 @@
             <p>All rights reserved We All &copy;</p><br><!-- <p> <a href="/login/close">logout</a></p>-->
         </div>
         <div>
-            <img src="{% static 'main/img/vector.png' %}" style="width:107%; height:auto; margin-left:-42px; margin-top:32%">
+            <img src="{% static 'main/img/vector.png' %}" style="width:107%; height:auto; margin-left:-42px; margin-top:30%">
         </div>
 	</body>
 </html>

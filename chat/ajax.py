@@ -15,7 +15,7 @@ def chat(request, text):
     time = ("%s" %now)
     time = time[:16]
     f    = open("log.html", "a")
-    f.write("<br> %s (%s) : %s" %(name, time, text))
+    f.write("<br> %s (%s) : %s" %(name, time, text))#TODO inja chato khoshgel mknm
     f.close()
     f    = open("log.html", "r")
     log  = f.read()

@@ -1,7 +1,10 @@
 <html>
-<head>
+<head>	
     <title>Sign Up!</title>
     {% load staticfiles %}
+	<style>
+		body{background-image:url("{% static 'register/signup_header.png' %}");}
+	</style>
     <meta name="author" value="Reza Shayestehpour">
     <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=0">
     <link type="text/css" rel="stylesheet" href="{% static 'register/style.css' %}">
@@ -122,19 +125,6 @@ function validatePhone(fld) {
             <input type="password" size="30" name="con_pass" placeholder="Confirm Password" class="inputs"><br>
             Birthday:
             <input type="date" name="birth_date" class="inputs"><br>
-            <!--
-            <select name="Birth_month" class="inputs">
-                <option value="month" selected>Month:</option>
-                <option value="...">...</option>
-            </select>
-            <select name="Birth_day" class="inputs">
-                <option value="day" selected>Day:</option>
-                <option value="...">...</option>
-            </select>
-            <select name="Birth_year" class="inputs">
-                <option value"year" selected>Year:</option>
-                <option value="...">...</option>
-            </select>-->
             Gender:
             <input type="radio" name="gender" value="M"/>
             <label for="male">Male</label>
@@ -163,7 +153,6 @@ function validatePhone(fld) {
         <div style=" margin-top:41%;margin-left:10px; float:left">
         <fieldset style="width:auto">
         <legend>Submit!</legend>
-        <!--#TODO if necessary inputs are not given, proper message should be shown here-->
         <div id="message"></div>
             <input type="checkbox" name="agreement" class="inputs">
             <label for="agreement">I accept the terms of WeAll!'s <a href="agreement">agreement!</a></label><br>
