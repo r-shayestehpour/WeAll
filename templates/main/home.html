@@ -8,8 +8,6 @@
 		<meta http-equiv="Content-Type" content="text /html; charset=UTF-8" />
 		<link type="text/css" rel="stylesheet" href="{% static 'main/css/team.css' %}" media="screen"/>
 		<link rel="stylesheet" href="{% static 'chat/style.css' %}"/>
-	<!--	<link type="text/css" rel="stylesheet" href="{% static 'main/css/tipsy.css' %}" />
-		<link type="text/css" rel="stylesheet" href="{% static 'main/css/jscroll.css' %}" /> -->
 		<script type="text/javascript" src="{% static 'main/jsc/jquery-1.4.js' %}"></script>
 		<script type="text/javascript" src="{% static 'main/jsc/roundabout.js' %}"></script>		
 		<script type="text/javascript" src="{% static 'main/jsc/myscripts.js' %}"></script>	
@@ -22,8 +20,8 @@
 			<center>
 				<li where="1" class="selected">News Feed</li>
 				<li where="2">New Post</li>				
-				<li where="3">Chat</li>
-				<li where="4">Find Friends</li>				
+				<li where="3">Chat Room</li>
+				<li where="4">Friends</li>				
 				<li where="5">Profile</li>
 			</center>
 		</ul>
@@ -37,13 +35,14 @@
 					<div class="holder">News Feed</div>
 				</li>
 			<!-- ################################################### -->
-				<li class="round" who="2" id="contests">						
+				<li class="round" who="2"  style="overflow:hidden;">						
 					<div class="content">
-						<h3> What's your status ?</h3>
-						<form name="status post" action="javascript:void(0);">
+						<p class="header"><br>What's Up?!</p><hr>						
+						<form name="status post" action="javascript:void(0);">						      					
 							<input type="text" id="status" size="20"/>  
 							<input name="submitstatus" type="button"  id="submitstatus" value="Post" onclick = "Dajaxice.main.new_post( newpost, { 'newtext': status.value } );"/>  
-						</form> 
+						</form>
+						<img src="{% static 'main/img/post.png' %}" style="height:70%; width:auto;; float:right; margin-top:50px;">
 						<div id="sysmsg"></div> 
 					</div>
 					<div class="holder">New Post</div>
@@ -52,10 +51,9 @@
 				<li class="round" who="3" id="problems">	
 					<div class="content">
 						<br>				
-						<P> WeAll Public ChatRoom </p><br>
+						<p class="header"><br>We All! &copy; chatroom!</p><hr>
 						<div id="wrapper">  
-								<div id="menu">  
-									<p class="welcome">Chat with anyone here!<b></b></p>    
+								<div id="menu">  									   
 									<div style="clear:both"></div>  
 								</div> 
 							<div id="chatbox"></div>  
@@ -65,7 +63,7 @@
 							</form>  
 						</div> 
 					</div>
-					<div class="holder">Chat</div>
+					<div class="holder">Chat Room</div>
 				</li>
 			<!-- ################################################### -->
 				<li class="round" who="4" id="conver">				
@@ -77,18 +75,34 @@
 						<div id="search_result"></div>
 						<div id="friendsysmsg"></div>
 					</div>
-					<div class="holder">Find Friends</div>
+					<div class="holder">Friends</div>
 				</li>
 			<!-- ################################################### -->					
-				<li class="round" who="5" id="FAQ">				
+				<li class="round" who="5" style="overflow:hidden;">				
 					<div class="content">
-						<h3> {{ person.first_name }} {{ person.last_name }}'s Profile </h3> <br>
-						<h1> general information </h1>
-						<p>
-						<b>last login </b> {{ person.last_login }}<br />
-						<b>phone number</b> {{ person.phone_num }}
-						</p>
-						<p><a href="/login/close">logout</a></p>
+						<p class="header"><br>{{ user.first_name }} {{ user.last_name }}</p><a href="/login/close">Log out</a><hr>
+						<fieldset>
+						    <legend>Information:</legend>
+						    <p class="info">
+						    <b>First name:</b> {{ user.first_name }} <br>
+						    <b>Last name:</b> {{ user.last_name }} <br>
+						    <b>E-Mail Address:</b> {{ user.email }} <br>
+						    <b>Birthday:</b> {{ person.birth_date }} <br>
+						    <b>Gender:</b> {{ person.gerder }} <br>						    
+						    </p><hr>
+						    <p class="info">
+						    <b>Country:</b> {{ person.country }} <br>
+						    <b>Phone number:</b> {{ person.phone_num }} <br>
+						    <b>Work:</b> None <br>
+						    <b>Home town:</b> None <br>
+						    <b>University:</b> None <br>
+						    </p><hr>
+						    <p class="info">
+						    <b>Join date:</b> {{ person.join_date }} <br>
+						    <b>Last Log in</b> {{ person.last_login }} <br>
+						    </p>						    
+						</fieldset>																		
+                        <img src="{% static 'main/img/logo_text.png' %}" style="width:100%; height:auto; opacity:0.4; margin-top:-100px;">
 					</div>
 					<div class="holder">Profile</div>
 				</li>
@@ -99,7 +113,7 @@
 		<script type="text/javascript"> $('#nitiftext').hide(); $('#submit').hide(); $('#problem').hide(); $('#login').hide(); $('#newpass').hide(); $('#endcontest').hide(); $('#alacstatus').hide(); $('#alacstand').hide(); $('#alacproblem').hide(); </script>
 		
 		<div id="footer">
-            <p>All rights reserved We All &copy;</p><br><!-- <p> <a href="/login/close">logout</a></p>-->
+            <br><p>All rights reserved We All &copy;</p>
         </div>
         <div>
             <img src="{% static 'main/img/vector.png' %}" style="width:107%; height:auto; margin-left:-42px; margin-top:32%">

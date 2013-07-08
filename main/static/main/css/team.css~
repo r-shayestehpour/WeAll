@@ -1,5 +1,24 @@
 body{
-	background:#022e3f url(../img/head.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+body .day{
+background:#06b5dd url(../img/day.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+#day {
+	background:#06b5dd url(../img/day.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+body .night{
+	background:#022e3f url(../img/night.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+#night {
+	background:#022e3f url(../img/night.jpg) no-repeat center top;
 	overflow:hidden;
 	cursor:default;
 }
@@ -72,9 +91,39 @@ ul#nav{
 	font:11pt tahoma,"B Yekan";
 	padding:5px 10px 4px 10px;
 	cursor:pointer;
-	color:#FFF;
+	color:#000;
 	border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;
 }
+/*##################################################################################################*/
+p.header
+{
+    font-size:28;
+	color:#000;
+	text-align:center;
+	direction:ltr;    
+}
+p.info
+{
+    font-size:14;
+	color:#000;
+	text-align:left;
+	direction:ltr;
+}
+fieldset
+{    
+    background-color:#e5e4e2;
+    border-radius:7px;
+    width:90%;
+    margin-left:3%;
+    border:none;
+}
+legend
+{
+    font-size:20px;
+    text-align:left;
+    margin-left:10px;
+}
+/*##################################################################################################*/
 .selected{
 	color:#022e3f !important;
 }
@@ -103,37 +152,7 @@ ul#nav{
 	height:20px;
 	z-index:-10;
 	border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;
-}
-.req{
-	width:100%;
-	height:31px;
-	line-height:31px;
-	background:#efefef;
-	color:#027086;
-	position:absolute;
-	bottom:0;
-	direction:rtl;
-	text-align:center;
-	margin-top:340px;
-	border-radius:0px 0px 10px 10px;-webkit-border-radius:0px 0px 10px 10px;-moz-border-radius:0px 0px 10px 10px;
-}
-.requp, .requpright{
-	width:550;
-	height:31px;
-	line-height:31px;
-	background:#efefef;
-	color:#027086;
-	position:absolute;
-	right:77px;
-	top:14px;
-	direction:rtl;
-	text-align:center;
-	border-radius:5px;-webkit-border-radius:5px;-moz-border-radius:5px;
-}
-.requpright{
-	right:17px;
-	width:20px;
-}
+
 div.rela{
 	position:relative;
 	width:100%;
