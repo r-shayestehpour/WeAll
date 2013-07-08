@@ -34,3 +34,8 @@ def update(request):
         id += 1
         html += '<p> #'+ str(id) +' <br>' + i.user.first_name + ' ' + i.user.last_name + ' updated status '  + ' : ' + "<br>" + i.text + "</P>" + time + " <hr width='33%'>"
     return simplejson.dumps({'data':html})
+
+@dajaxice_register
+def search_poeple(request, name):
+    pass
+    

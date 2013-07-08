@@ -35,24 +35,24 @@ class FriendshipManager(models.Manager):
         friendship.delete()
 
 
-class FriendshipInvitationManager(models.Manager):
-    
-    def invitations(self, user):
-        return self.filter(Q(from_user=user) | Q(to_user=user)).exclude(status__in=(5, 6, 7))
-    
-    def create_friendship_request(self, from_user, to_user, msg=None):
-        inv = self.create(from_user=from_user, to_user=to_user,
-            message=msg or "", status=2)
-        if notification:
-            notification.send([to_user], "friends_invite", {"invitation": inv})
-            notification.send([from_user], "friends_invite_sent", {"invitation": inv})
-        return inv
-    
-    def invitation_status(self, user1, user2):
-        invs = self.filter(
-            Q(from_user=user1, to_user=user2) | 
-            Q(from_user=user2, to_user=user1)
-        )
-        if not invs:
-            return None
-        return max(inv.status for inv in invs)
+#class FriendshipInvitationManager(models.Manager):
+#    
+#    def invitations(self, user):
+#        return self.filter(Q(from_user=user) | Q(to_user=user)).exclude(status__in=(5, 6, 7))
+#    
+#    def create_friendship_request(self, from_user, to_user, msg=None):
+#        inv = self.create(from_user=from_user, to_user=to_user,
+#            message=msg or "", status=2)
+#        if notification:
+#            notification.send([to_user], "friends_invite", {"invitation": inv})
+#            notification.send([from_user], "friends_invite_sent", {"invitation": inv})
+#        return inv
+#    
+#    def invitation_status(self, user1, user2):
+#        invs = self.filter(
+#            Q(from_user=user1, to_user=user2) | 
+#            Q(from_user=user2, to_user=user1)
+#        )
+#        if not invs:
+#            return None
+#        return max(inv.status for inv in invs)
