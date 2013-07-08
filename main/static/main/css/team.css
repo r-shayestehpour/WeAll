@@ -2,8 +2,18 @@ body{
 	overflow:hidden;
 	cursor:default;
 }
+body .day{
+background:#a7e4f3 url(../img/day.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
 #day {
 	background:#a7e4f3 url(../img/day.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+body .night{
+	background:#022e3f url(../img/night.jpg) no-repeat center top;
 	overflow:hidden;
 	cursor:default;
 }

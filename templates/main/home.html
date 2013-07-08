@@ -7,7 +7,7 @@
         <meta http-equiv="Content-Type" content="text /html; charset=UTF-8" />
 
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'main/icn/favicon.ico' %}" /> 
-        <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}static/main/css/team.css" media="screen"/> 
+        <link type="text/css" rel="stylesheet" href="{% static 'main/css/team.css' %}" media="screen"/> 
         <link rel="stylesheet" href="{% static 'chat/style.css' %}"/>         
         <script type="text/javascript" src="{% static 'main/jsc/jquery-1.4.js' %}"></script>
         <script type="text/javascript" src="{% static 'main/jsc/roundabout.js' %}"></script>
@@ -74,7 +74,7 @@
     
     </script>		
 	</head>
-	<body id="{{ time }}">
+	<body id="{{ time }}" class="{{ time}}">
 		<ul id="nav">
 			<div id="backbar"></div>
 			<center>

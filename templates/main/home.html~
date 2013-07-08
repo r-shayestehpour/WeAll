@@ -1,18 +1,26 @@
-/*{% load dajaxice_templatetags %}*/
+{% load dajaxice_templatetags %}
 <html>
 	<head>
+
+		<title>We All!</title>
+		{% load staticfiles %}
+        <meta http-equiv="Content-Type" content="text /html; charset=UTF-8" />
+
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'main/icn/favicon.ico' %}" /> 
+        <link type="text/css" rel="stylesheet" href="{{ STATIC_URL }}static/main/css/team.css" media="screen"/> 
+        <link rel="stylesheet" href="{% static 'chat/style.css' %}"/>         
+        <script type="text/javascript" src="{% static 'main/jsc/jquery-1.4.js' %}"></script>
+        <script type="text/javascript" src="{% static 'main/jsc/roundabout.js' %}"></script>
+        <script type="text/javascript" src="{% static 'main/jsc/myscripts.js' %}"></script>	
         
-		/*<title>We All! {{ time }}</title>*/
-/*		{% load staticfiles %}*/
-		<link rel="shortcut icon" type="image/x-icon" href="{% static 'main/icn/favicon.ico' %}" />
-		<meta http-equiv="Content-Type" content="text /html; charset=UTF-8" />
-		<link type="text/css" rel="stylesheet" href="{% static 'main/css/' %}{{ time }}.css" media="screen"/>
-		<link rel="stylesheet" href="{% static 'chat/style.css' %}"/>
-	<!--	<link type="text/css" rel="stylesheet" href="{% static 'main/css/tipsy.css' %}" />
-		<link type="text/css" rel="stylesheet" href="{% static 'main/css/jscroll.css' %}" /> -->
-		<script type="text/javascript" src="{% static 'main/jsc/jquery-1.4.js' %}"></script>
-		<script type="text/javascript" src="{% static 'main/jsc/roundabout.js' %}"></script>		
-		<script type="text/javascript" src="{% static 'main/jsc/myscripts.js' %}"></script>	
+<!--
+        <link rel="shortcut icon" type="image/x-icon" href="/icn/favicon.ico" />
+        <link rel="stylesheet"                        href="/chat/style.css"/>
+        <link type="text/css" rel="stylesheet"        href="/css/{{ time }}.css" media="screen"/>
+        <script type="text/javascript"                 src="/jsc/jquery-1.4.js"></script>
+        <script type="text/javascript"                 src="/jsc/roundabout.js"></script>
+        <script type="text/javascript"                 src="jsc/myscripts.js"></script>  -->
+        
 		{% dajaxice_js_import %}
 		
 		
@@ -66,7 +74,7 @@
     
     </script>		
 	</head>
-	<body>
+	<body id="{{ time }}">
 		<ul id="nav">
 			<div id="backbar"></div>
 			<center>
@@ -124,7 +132,12 @@
 				<li class="round" who="5" id="FAQ">				
 					<div class="content">
 						<h3> {{ person.first_name }} {{ person.last_name }}'s Profile </h3> <br>
-						<p> </p>
+						<h1> general information </h1>
+						<p>
+						<b>last login </b> {{ person.last_login }}<br />
+						<b>phone number</b> {{ person.phone_num }}
+						</p>
+						<p><a href="/login/close">logout</a></p>
 					</div>
 					<div class="holder">Profile</div>
 				</li>					
@@ -137,7 +150,8 @@
             <p>All rights reserved We All &copy;</p><br><!-- <p> <a href="/login/close">logout</a></p>-->
         </div>
         <div>
-            <img src="{% static 'main/img/vector.png' %}" style="width:107%; height:auto; margin-left:-42px; margin-top:32%">
+            <img src="{% static 'main/img/vector.png' %}" style="width:107%; height:auto; margin-left:-42px; margin-top:32%"> 
+<!--            <img src="media/static/main/img/vector.png" style="width:107%; height:auto; margin-left:-42px; margin-top:32%"> -->
         </div>
 	</body>
 </html>
