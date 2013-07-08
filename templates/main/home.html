@@ -3,6 +3,7 @@
 	<head>
 		<title>We All!</title>
 		{% load staticfiles %}
+		{% dajaxice_js_import %}
 		<link rel="shortcut icon" type="image/x-icon" href="{% static 'main/icn/favicon.ico' %}" />
 		<meta http-equiv="Content-Type" content="text /html; charset=UTF-8" />
 		<link type="text/css" rel="stylesheet" href="{% static 'main/css/team.css' %}" media="screen"/>
@@ -12,58 +13,8 @@
 		<script type="text/javascript" src="{% static 'main/jsc/jquery-1.4.js' %}"></script>
 		<script type="text/javascript" src="{% static 'main/jsc/roundabout.js' %}"></script>		
 		<script type="text/javascript" src="{% static 'main/jsc/myscripts.js' %}"></script>	
-		{% dajaxice_js_import %}
-		
-		
-		<script>
-		
-        function loadLog(data){
-     
-            var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request  
-            $("#msg").attr("value", "");   
-            $("#chatbox").html(data.message); //Insert chat log into the #chatbox div     
-              
-            //Auto-scroll             
-            var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request  
-            if(newscrollHeight > oldscrollHeight){  
-                $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div  
-            }    
-            return false;         
-        }
-        
-        
-        function log(data){
-			alert(data.message);
-			return false;
-		}
-    </script>
-    
-    <script>
-    function searchKeyPress(e)
-    {
-        // look for window.event in case event isn't passed in
-        if (typeof e == 'undefined' && window.event) { e = window.event; }
-        if (e.keyCode == 13)
-        {
-            document.getElementById('submitmsg').click();
-        }
-    }
-    </script>
-    
-    <script>
-		function newpost(data){
-			$("#status").attr("value", ""); 
-			$("#sysmsg").html(data.message);
-			Dajaxice.main.update(feed);
-		}
-		function feed (post) {
-			
-			$("#feed").html(post.data);
-		}
-		
-	setInterval(function(){Dajaxice.main.update(feed)}, 10000)
-    
-    </script>		
+		<script type="text/javascript" src="{% static 'main/jsc/myjs.js' %}"></script>
+
 	</head>
 	<body>
 		<ul id="nav">
@@ -77,13 +28,15 @@
 			</center>
 		</ul>
 		<div id="main">
-			<ul>		
+			<ul>	
+			<!-- ################################################### -->	
 				<li class="round" who="1" id="home">				
 					<div class="content">						
 						<div id="feed"></div>
 					</div>
 					<div class="holder">News Feed</div>
 				</li>
+			<!-- ################################################### -->
 				<li class="round" who="2" id="contests">						
 					<div class="content">
 						<h3> What's your status ?</h3>
@@ -95,6 +48,7 @@
 					</div>
 					<div class="holder">New Post</div>
 				</li>
+			<!-- ################################################### -->
 				<li class="round" who="3" id="problems">	
 					<div class="content">
 						<br>				
@@ -112,21 +66,28 @@
 						</div> 
 					</div>
 					<div class="holder">Chat</div>
-				</li>			
+				</li>
+			<!-- ################################################### -->
 				<li class="round" who="4" id="conver">				
 					<div class="content">
-						
-						
+						<form name="search" action="javascript:void(0);">  
+							<input type="text" id="searchtext" size="63" onkeypress="searchKeyPress(event);"/>  
+							<input name="searchbutton" type="button"  id="searchbutton" value="Search" onclick = "Dajaxice.main.search_poeple( loadsearch, { 'name': searchtext.value } );"/>  
+						</form>
+						<div id="search_result"></div>
+						<div id="friendsysmsg"></div>
 					</div>
 					<div class="holder">Find Friends</div>
-				</li>							
+				</li>
+			<!-- ################################################### -->					
 				<li class="round" who="5" id="FAQ">				
 					<div class="content">
 						<h3> {{ person.first_name }} {{ person.last_name }}'s Profile </h3> <br>
 						<p> </p>
 					</div>
 					<div class="holder">Profile</div>
-				</li>					
+				</li>
+			<!-- ################################################### -->	
 			</ul>
 		</div>
 		
