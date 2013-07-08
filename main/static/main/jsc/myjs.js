@@ -12,11 +12,13 @@ function loadLog(data){
     return false;         
 }
 
-
+//**********************************************************//
 function log(data){
 	alert(data.message);
 	return false;
 }
+
+//**********************************************************//
 function searchKeyPress(e)
 {
     // look for window.event in case event isn't passed in
@@ -27,6 +29,7 @@ function searchKeyPress(e)
     }
 }
 
+//***********************************************************//
 function newpost(data){
 	$("#status").attr("value", ""); 
 	$("#sysmsg").html(data.message);
@@ -39,8 +42,11 @@ function feed (post) {
 
 setInterval(function(){Dajaxice.main.update(feed)}, 10000)
 
-
+//***************************************************************//
 function loadsearch (result){
 	$("#search_result").html(result.html);
 }
 
+function addfriend (result){
+	$("#friendsysmsg").html(result.html);
+}

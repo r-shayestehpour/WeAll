@@ -71,13 +71,15 @@
 				<li class="round" who="4" id="conver">				
 					<div class="content">
 						<form name="search" action="javascript:void(0);">  
-							<input type="text" id="msg" size="63" onkeypress="searchKeyPress(event);"/>  
-							<input name="searchbutton" type="button"  id="searchbutton" value="Search" onclick = "Dajaxice.main.search_poeple( loadLog, { 'text': msg.value } );"/>  
+							<input type="text" id="searchtext" size="63" onkeypress="searchKeyPress(event);"/>  
+							<input name="searchbutton" type="button"  id="searchbutton" value="Search" onclick = "Dajaxice.main.search_poeple( loadsearch, { 'name': searchtext.value } );"/>  
 						</form>
 						<div id="search_result"></div>
+						<div id="friendsysmsg"></div>
 					</div>
 					<div class="holder">Find Friends</div>
-				</li>							
+				</li>
+			<!-- ################################################### -->					
 				<li class="round" who="5" id="FAQ">				
 					<div class="content">
 						<h3> {{ person.first_name }} {{ person.last_name }}'s Profile </h3> <br>
