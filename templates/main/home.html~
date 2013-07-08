@@ -1,11 +1,12 @@
-{% load dajaxice_templatetags %}
+/*{% load dajaxice_templatetags %}*/
 <html>
 	<head>
-		<title>We All!</title>
-		{% load staticfiles %}
+        
+		/*<title>We All! {{ time }}</title>*/
+/*		{% load staticfiles %}*/
 		<link rel="shortcut icon" type="image/x-icon" href="{% static 'main/icn/favicon.ico' %}" />
 		<meta http-equiv="Content-Type" content="text /html; charset=UTF-8" />
-		<link type="text/css" rel="stylesheet" href="{% static 'main/css/team.css' %}" media="screen"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'main/css/' %}{{ time }}.css" media="screen"/>
 		<link rel="stylesheet" href="{% static 'chat/style.css' %}"/>
 	<!--	<link type="text/css" rel="stylesheet" href="{% static 'main/css/tipsy.css' %}" />
 		<link type="text/css" rel="stylesheet" href="{% static 'main/css/jscroll.css' %}" /> -->
@@ -136,7 +137,7 @@
             <p>All rights reserved We All &copy;</p><br><!-- <p> <a href="/login/close">logout</a></p>-->
         </div>
         <div>
-            <img src="{% static 'main/img/vector.png' %}" style="width:107%; height:auto; margin-left:-42px; margin-top:30%">
+            <img src="{% static 'main/img/vector.png' %}" style="width:107%; height:auto; margin-left:-42px; margin-top:32%">
         </div>
 	</body>
 </html>
