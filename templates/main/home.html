@@ -16,7 +16,7 @@
 		<script type="text/javascript" src="{% static 'main/jsc/myjs.js' %}"></script>
 
 	</head>
-	<body>
+	<body id="{{ time }}" class="{{ time }}">
 		<ul id="nav">
 			<div id="backbar"></div>
 			<center>
@@ -83,7 +83,12 @@
 				<li class="round" who="5" id="FAQ">				
 					<div class="content">
 						<h3> {{ person.first_name }} {{ person.last_name }}'s Profile </h3> <br>
-						<p> </p>
+						<h1> general information </h1>
+						<p>
+						<b>last login </b> {{ person.last_login }}<br />
+						<b>phone number</b> {{ person.phone_num }}
+						</p>
+						<p><a href="/login/close">logout</a></p>
 					</div>
 					<div class="holder">Profile</div>
 				</li>

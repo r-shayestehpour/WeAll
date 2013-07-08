@@ -1,5 +1,24 @@
 body{
-	background:#022e3f url(../img/head.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+body .day{
+background:#06b5dd url(../img/day.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+#day {
+	background:#06b5dd url(../img/day.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+body .night{
+	background:#022e3f url(../img/night.jpg) no-repeat center top;
+	overflow:hidden;
+	cursor:default;
+}
+#night {
+	background:#022e3f url(../img/night.jpg) no-repeat center top;
 	overflow:hidden;
 	cursor:default;
 }
@@ -72,7 +91,7 @@ ul#nav{
 	font:11pt tahoma,"B Yekan";
 	padding:5px 10px 4px 10px;
 	cursor:pointer;
-	color:#FFF;
+	color:#000;
 	border-radius:10px;-webkit-border-radius:10px;-moz-border-radius:10px;
 }
 .selected{
