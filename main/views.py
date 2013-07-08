@@ -1,4 +1,4 @@
-from main.settings import TEMPLATE_DIRS
+from main.settings import TEMPLATE_DIRS, ROOT
 from django.template import Context, loader
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.models import User
@@ -17,22 +17,27 @@ def index (request) :
         time = str(now)
         time = time[11:13]
         time = int(time)
-        if time > 6 and time < 15:
-			f = open("static/main/css/team.css","r")
-			af = f.read()
-			f.close()
-			af = af.replace("background:#022e3f url(../img/night.jpg) no-repeat center top;","background:#a7e4f3 url(../img/day.jpg) no-repeat center top;")
-			f = open("static/main/css/team.css","w")
-			f.write(af)
-			f.close()
+        print "salam"
+#        if time > 6 and time < 15 :
+        if True:
+            print "sallma"
+            f = open(ROOT+"/main/static/main/css/team.css","r")
+            af = f.read()
+            f.close()
+            af = af.replace("background:#a7e4f3 url(../img/day.jpg) no-repeat center top;",
+                "background:#022e3f url(../img/night.jpg) no-repeat center top;")
+            f = open(ROOT+"/main/static/main/css/team.css","w")
+            f.write(af)
+            f.close()
         else:
-			f = open("static/main/css/team.css","r")
-			af = f.read()
-			f.close()
-			af = af.replace("background:#a7e4f3 url(../img/day.jpg) no-repeat center top;","background:#022e3f url(../img/night.jpg) no-repeat center top;")
-			f = open("static/main/css/team.css","w")
-			f.write(af)
-			f.close()
+            f = open(ROOT+"/main/static/main/css/team.css","r")
+            af = f.read()
+            f.close()
+            af = af.replace("background:#022e3f url(../img/night.jpg) no-repeat center top;",
+                "background:#a7e4f3 url(../img/day.jpg) no-repeat center top;")
+            f = open(ROOT+"/main/static/main/css/team.css","w")
+            f.write(af)
+            f.close()
         return HttpResponseRedirect('/home')
     #############################################
     else:

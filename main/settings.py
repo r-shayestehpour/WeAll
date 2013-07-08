@@ -30,6 +30,8 @@ USE_L10N = True
 USE_TZ = True
 import os
 ROOT_DIR = (os.path.join(os.path.dirname(__file__), '..',).replace('\\','/'),)
+ROOT = ROOT_DIR[0][:len(ROOT_DIR[0])-8]
+print ROOT
 MEDIA_ROOT = ROOT_DIR[0]+'/media'
 MEDIA_URL = '/media/'
 STATIC_ROOT = ROOT_DIR[0]+'/static'
