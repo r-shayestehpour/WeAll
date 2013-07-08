@@ -22,7 +22,8 @@ def index (request) :
 def home (request) :
     template = loader.get_template(TEMPLATE_DIRS[0]+'/main/home.html')
     if request.session.get('username') :
-        p = User.objects.get(username = request.session['username'])
+        usr = User.objects.get(username = request.session['username'])
+        person = main.models.Person.objects.get(user = usr)
         now = timezone.now()
         time = str(now)
         time = time[11:13]
@@ -31,7 +32,7 @@ def home (request) :
 			time_css = "day"
         else:
 			time_css = "night"
-        return HttpResponse(template.render(Context({'person':p, 'time': time_css})))
+        return HttpResponse(template.render(Context({'person':person, 'user':usr, 'time': time_css})))
     else :
         template = loader.get_template(TEMPLATE_DIRS[0]+'/system_message.html')
         message = 'you are not logged in ! please first login ...'
