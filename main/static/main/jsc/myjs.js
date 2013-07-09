@@ -13,7 +13,7 @@ function loadLog(data){
 }
 
 function updateLog(data){
-    alert("kooft");
+  
     var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request   
     $("#chatbox").html(data.message); //Insert chat log into the #chatbox div     
       
