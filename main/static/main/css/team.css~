@@ -123,6 +123,14 @@ legend
     text-align:left;
     margin-left:10px;
 }
+textarea
+{
+    border-radius:7px;
+    width:90%;
+    height:20%;
+    margin-left:3%;
+    opacity:0.7;
+}
 /*##################################################################################################*/
 .selected{
 	color:#022e3f !important;

@@ -30,7 +30,7 @@
 			<!-- ################################################### -->	
 				<li class="round" who="1" id="home">				
 					<div class="content">						
-						<div id="feed"></div>
+						<br><br><div id="feed"></div>
 					</div>
 					<div class="holder">News Feed</div>
 				</li>
@@ -41,13 +41,13 @@
                         <div>	
                            					
 						<form name="status_post" action="javascript:void(0);">	
-                             <textarea name="status" id="status" form="status_post">Enter text here...</textarea>					      					
+                             <textarea name="status" id="status" form="status_post" rows="7"></textarea><br>					      					
 							<!--<input type="text" id="status" size="20"/>-->  
 							<input name="submitstatus" type="button"  id="submitstatus" value="Post" onclick = "Dajaxice.main.new_post( newpost, { 'newtext': document.getElementById('status').value } );"/>  
 						</form>
                             
                         </div>
-						<img src="{% static 'main/img/post.png' %}" style="height:70%; width:auto;; float:right; margin-top:50px;">
+						<img src="{% static 'main/img/post.png' %}" style="height:70%; width:auto;; float:right; margin-top:-70px;">
 						<div id="sysmsg"></div> 
 					</div>
 					<div class="holder">New Post</div>
