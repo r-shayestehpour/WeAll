@@ -12,7 +12,20 @@ function loadLog(data){
     return false;         
 }
 
-setInterval(function(){Dajaxice.chat.update_chat(loadLog)}, 50)
+function updateLog(data){
+    alert("kooft");
+    var oldscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height before the request   
+    $("#chatbox").html(data.message); //Insert chat log into the #chatbox div     
+      
+    //Auto-scroll             
+    var newscrollHeight = $("#chatbox").attr("scrollHeight") - 20; //Scroll height after the request  
+    if(newscrollHeight > oldscrollHeight){  
+        $("#chatbox").animate({ scrollTop: newscrollHeight }, 'normal'); //Autoscroll to bottom of div  
+    }    
+    return false;
+    }        
+    
+setInterval(function(){Dajaxice.chat.update_chat(updateLog)}, 1000)
 //**********************************************************//
 function log(data){
 	alert(data.message);
