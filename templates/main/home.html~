@@ -30,7 +30,7 @@
 			<!-- ################################################### -->	
 				<li class="round" who="1" id="home">				
 					<div class="content">						
-						<div id="feed"></div>
+						<br><br><div id="feed"></div>
 					</div>
 					<div class="holder">News Feed</div>
 				</li>
@@ -73,13 +73,15 @@
 			<!-- ################################################### -->
 				<li class="round" who="4" id="conver">				
 					<div class="content">
+					    <p class="header"><br>Search for new friends!</p><hr><br>
 						<form name="search" action="javascript:void(0);">  
 							<input type="text" id="searchtext" size="63" onkeypress="searchKeyPress(event);"/>  
 							<input name="searchbutton" type="button"  id="searchbutton" value="Search" onclick = "Dajaxice.main.search_poeple( loadsearch, { 'name': searchtext.value } );"/>  
 						</form>
+						<p class="header"><br>You are currently friends with:</p><hr><br>
 						<div id="search_result"></div>
 						<div id="friendsysmsg"></div>
-                        <a href="javascript:Dajaxice.main.show_friend(loadfriend);">Show Friends</a>
+                        <a href="#" onclick="Dajaxice.friends.show_friend(loadfriend);">Show Friends</a><br>
                         <div id="friendlist"></div>
 					</div>
 					<div class="holder">Friends</div>

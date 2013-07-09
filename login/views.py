@@ -34,7 +34,7 @@ def login (request ) :
     else :
         template = loader.get_template(TEMPLATE_DIRS[0] +'/main/index.html')
         message = 'Wrong email or password!'
-        return HttpResponse(template.render(Context({'message' : message, 'random':int(random.random()*24)})))
+        return HttpResponse(template.render(Context({'message' : message, 'random':int(random.choice(range(1, 24)))})))
 def logout (request) :
     try :
         del request.session['username']

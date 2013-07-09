@@ -44,7 +44,9 @@ def update(request):
             break
         if ((i.user in friendslist) or (i.user == p)) :
             id += 1
-            html += '<fieldset style="background-color:#e5e4e2; border-radius:7px; width:90%; margin-left:3%; border:none;"><legend style="font-size:20px; text-align:left; margin-left:10px;">' + i.user.first_name + ' ' + i.user.last_name + '</legend><p class="info"><small color="Silver" style="text-align:left;">'+ time +'</small></p><br><p class="info">' + i.text + '</p><br></fieldset><br>'#'<p> #'+ str(id) +' <br>' + i.user.first_name + ' ' + i.user.last_name + ' updated status '  + ' : ' + "<br>" + i.text + "</P>" + time + " <hr width='33%'>"
+            post_time = str(i.date)
+            post_time = post_time[:16]
+            html += '<fieldset style="background-color:#e5e4e2; border-radius:7px; width:90%; margin-left:3%; border:none;"><legend style="font-size:20px; text-align:left; margin-left:10px;">' + i.user.first_name + ' ' + i.user.last_name + '</legend><p class="info"><small color="Silver" style="text-align:left;">'+ post_time +'</small></p><br><p class="info">' + i.text + '</p><br></fieldset><br>'#'<p> #'+ str(id) +' <br>' + i.user.first_name + ' ' + i.user.last_name + ' updated status '  + ' : ' + "<br>" + i.text + "</P>" + time + " <hr width='33%'>"
     return simplejson.dumps({'data':html})
         
 @dajaxice_register
