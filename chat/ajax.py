@@ -22,3 +22,9 @@ def chat(request, text):
     f.close()
     return simplejson.dumps({'message':log})
 
+@dajaxice_register
+def update_chat(request):
+    f    = open("log.html", "r")
+    log  = f.read()
+    f.close()
+    return simplejson.dumps({'message':log})

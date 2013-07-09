@@ -12,6 +12,7 @@ function loadLog(data){
     return false;         
 }
 
+setInterval(function(){Dajaxice.chat.update_chat(loadLog)}, 50)
 //**********************************************************//
 function log(data){
 	alert(data.message);
@@ -40,7 +41,9 @@ function feed (post) {
 	$("#feed").html(post.data);
 }
 
-setInterval(function(){Dajaxice.main.update(feed)}, 10000)
+setInterval(function(){Dajaxice.main.update(feed)}, 2000)
+
+
 
 //***************************************************************//
 function loadsearch (result){
