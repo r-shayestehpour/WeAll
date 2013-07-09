@@ -50,3 +50,7 @@ function loadsearch (result){
 function addfriend (result){
 	$("#friendsysmsg").html(result.html);
 }
+
+function loadfriend(result){
+    $("#friendlist").html(result.html);
+}

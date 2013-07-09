@@ -24,18 +24,29 @@ def new_post(request, newtext):
     
 @dajaxice_register
 def update(request):
+    try:
+        p = User.objects.get(username = request.session['username'])
+    except:
+        return simplejson.dumps({'data':'user problem, logout & login to fix the problem'})
+    li = friends.models.Friendship.objects.friends_for_user(p)
+    friendslist = list()
+    for i in li:
+        friendslist.append(i['friend'])
     posts = list(main.models.Post.objects.all())
-    posts = posts[-20:]
+    posts = posts[-30:]
     html = ''
     now = timezone.now()
     time = ("%s" %now)
     time = time[:16]
     id = 0
     for i in reversed(posts) :
-        id += 1
-        html += '<p> #'+ str(id) +' <br>' + i.user.first_name + ' ' + i.user.last_name + ' updated status '  + ' : ' + "<br>" + i.text + "</P>" + time + " <hr width='33%'>"
+        if id == 20:
+            break
+        if ((i.user in friendslist) or (i.user == p)) :
+            id += 1
+            html += '<p> #'+ str(id) +' <br>' + i.user.first_name + ' ' + i.user.last_name + ' updated status '  + ' : ' + "<br>" + i.text + "</P>" + time + " <hr width='33%'>"
     return simplejson.dumps({'data':html})
-
+        
 @dajaxice_register
 def search_poeple(request, name):
     try:
@@ -68,9 +79,22 @@ def add_friend(request, username):
         if not friends.models.Friendship.objects.are_friends(fuser, tuser):
             friendship = friends.models.Friendship(to_user = tuser, from_user = fuser)
             friendship.save()
-            return simplejson.dumps({'html': "you're now friend "})
+            return simplejson.dumps({'html': "you're now friends "})
             # with %s %s" %(tuser.first_name, tuser.last_name)})
         else:
             return simplejson.dumps({'html': "Already friends!"})
     except:
         return simplejson.dumps({'html': "all error!"})
+
+@dajaxice_register
+def show_friend(request):
+    try:
+        p = User.objects.get(username = request.session['username'])
+    except:
+        return simplejson.dumps({'html':'user problem, logout & login to fix the problem'})
+    
+    li = friends.models.Friendship.objects.friends_for_user(p)
+    html =''
+    for i in li:
+        html +='<p>' + i['friend'].first_name + ' ' +  i['friend'].last_name + '</p><br>'
+    return simplejson.dumps({'html': html})
